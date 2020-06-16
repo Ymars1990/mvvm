@@ -12,7 +12,10 @@ import com.ymars.poj.comutils.LogTools;
  */
 public class MyLifecycleObserver implements DefaultLifecycleObserver {
     private String TAG = this.getClass().getSimpleName();
-    
+
+    public MyLifecycleObserver() {
+    }
+
     public MyLifecycleObserver(String tag) {
         TAG = tag;
     }

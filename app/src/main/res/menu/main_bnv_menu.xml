@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/mainBnvItem01"
+        android:enabled="true"
+        android:icon="@mipmap/home"
+        android:title="选项一"
+        app:showAsAction="ifRoom" />
+    <item android:id="@+id/mainBnvItem02"
+        android:enabled="true"
+        android:icon="@mipmap/wechat"
+        android:title="选项二"
+        app:showAsAction="ifRoom" />
+    <item android:id="@+id/mainBnvItem03"
+        android:enabled="true"
+        android:icon="@mipmap/project"
+        android:title="选项三"
+        app:showAsAction="ifRoom" />
+    <item android:id="@+id/mainBnvItem04"
+        android:enabled="true"
+        android:icon="@mipmap/mine"
+        android:title="选项四"
+        app:showAsAction="ifRoom" />
+</menu>
