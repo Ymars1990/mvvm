@@ -435,5 +435,5 @@
 
     <dimen name="design_bottom_navigation_active_text_size" tools:override="true">12sp</dimen>
     <dimen name="design_bottom_navigation_text_size" tools:override="true">12sp</dimen>
-    <dimen name="design_bottom_navigation_margin" tools:override="true">2dp</dimen>
+    <dimen name="design_bottom_navigation_margin" tools:override="true">15dp</dimen>
 </resources>

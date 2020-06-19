@@ -4,21 +4,21 @@
     <item android:id="@+id/mainBnvItem01"
         android:enabled="true"
         android:icon="@mipmap/home"
-        android:title="选项一"
+        android:title="首页"
         app:showAsAction="ifRoom" />
     <item android:id="@+id/mainBnvItem02"
         android:enabled="true"
         android:icon="@mipmap/wechat"
-        android:title="选项二"
+        android:title="信息"
         app:showAsAction="ifRoom" />
     <item android:id="@+id/mainBnvItem03"
         android:enabled="true"
         android:icon="@mipmap/project"
-        android:title="选项三"
+        android:title="项目"
         app:showAsAction="ifRoom" />
     <item android:id="@+id/mainBnvItem04"
         android:enabled="true"
         android:icon="@mipmap/mine"
-        android:title="选项四"
+        android:title="我的"
         app:showAsAction="ifRoom" />
 </menu>

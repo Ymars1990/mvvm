@@ -16,6 +16,10 @@
             <option value="$PROJECT_DIR$/base" />
             <option value="$PROJECT_DIR$/component" />
             <option value="$PROJECT_DIR$/comutils" />
+            <option value="$PROJECT_DIR$/home" />
+            <option value="$PROJECT_DIR$/message" />
+            <option value="$PROJECT_DIR$/mine" />
+            <option value="$PROJECT_DIR$/project" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

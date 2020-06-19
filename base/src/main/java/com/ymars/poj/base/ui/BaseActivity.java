@@ -25,8 +25,10 @@ public abstract class BaseActivity<T extends ViewDataBinding> extends AppCompatA
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mCtx = this;
+        requestWindowFeature(android.view.Window.FEATURE_NO_TITLE);
         viewBinding = DataBindingUtil.setContentView(this, setLayoutId(savedInstanceState));
         getLifecycle().addObserver(new MyLifecycleObserver(TAG));
+        initView();
     }
 
     @Override
@@ -35,6 +37,7 @@ public abstract class BaseActivity<T extends ViewDataBinding> extends AppCompatA
     }
 
     protected abstract int setLayoutId(@Nullable Bundle savedInstanceState);
+    protected abstract void initView();
 
 
     @Override
@@ -48,4 +51,6 @@ public abstract class BaseActivity<T extends ViewDataBinding> extends AppCompatA
         super.onNewIntent(intent);
         LogTools.i(TAG, "onNewIntent");
     }
+
+
 }
