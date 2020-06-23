@@ -1,3 +1,4 @@
+include ':businesscom'
 include ':network'
 include ':mine'
 include ':project'

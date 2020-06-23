@@ -13,4 +13,14 @@ public class MessageFragment extends BaseFragment {
     protected void initView() {
 
     }
+
+    @Override
+    protected void doWork() {
+
+    }
+
+    @Override
+    protected void initData() {
+
+    }
 }

@@ -1,7 +1,5 @@
 package com.ymars.poj.network;
 
-import org.json.JSONObject;
-
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -12,8 +10,6 @@ public class ReceivedCookiesInterceptor implements Interceptor {
 
     @Override
     public Response intercept(Chain chain) throws IOException {
-
-
         Response originalResponse = chain.proceed(chain.request());
         if (!originalResponse.headers("Set-Cookie").isEmpty()) {
             ArrayList<String> cookies = new ArrayList<>();
