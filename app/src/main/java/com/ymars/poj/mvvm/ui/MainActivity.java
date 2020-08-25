@@ -38,7 +38,6 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
     @Override
     protected void initView() {
         initData();
-
         tabVp = viewBinding.tabVp;
         tabBnv = viewBinding.tabBnv;
         tabVp.setAdapter(new MyFragmentAdapter(getSupportFragmentManager(), BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, fragments));

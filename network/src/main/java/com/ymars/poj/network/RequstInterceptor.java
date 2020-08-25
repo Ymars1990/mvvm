@@ -33,11 +33,13 @@ public class RequstInterceptor implements Interceptor {
             Charset charset = Charset.forName("UTF-8");
             String request_body = buffer.readString(charset);
             LogTools.i(TAG, String.format("request:%s", request_body));
+            MediaType mediaType = requestBody.contentType();
+            LogTools.i(TAG, String.format("mediaType：%s", mediaType.toString()));
         }
         Response response = chain.proceed(request);
-        MediaType mediaType = response.body().contentType();
-        String content = response.body().string();
-        LogTools.i(TAG, String.format("mediaType：%s", mediaType.toString()));
+        String content = response.toString();
+        LogTools.i(TAG, String.format("header：%s", request.headers().toString()));
+        LogTools.i(TAG, String.format("method：%s", request.method()));
         LogTools.i(TAG, String.format("response:%s", JsonFormater.format(content)));
 
         return response.newBuilder()

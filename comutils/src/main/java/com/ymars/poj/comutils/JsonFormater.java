@@ -10,26 +10,27 @@ public class JsonFormater {
         StringBuilder indent = new StringBuilder();
         StringBuilder sb = new StringBuilder();
 
+
         for (char c : json.toCharArray()) {
             switch (c) {
                 case '{':
                     indent.append(" ");
-                    sb.append("{").append(indent);
+                    sb.append("{\n").append(indent);
                     break;
                 case '}':
                     indent.deleteCharAt(indent.length() - 1);
-                    sb.append("").append(indent).append("}");
+                    sb.append("\n").append(indent).append("}");
                     break;
                 case '[':
                     indent.append(" ");
-                    sb.append("[").append(indent);
+                    sb.append("[\n").append(indent);
                     break;
                 case ']':
                     indent.deleteCharAt(indent.length() - 1);
-                    sb.append("").append(indent).append("]");
+                    sb.append("\n").append(indent).append("]");
                     break;
                 case ',':
-                    sb.append(",").append(indent);
+                    sb.append(",\n").append(indent);
                     break;
                 default:
                     sb.append(c);

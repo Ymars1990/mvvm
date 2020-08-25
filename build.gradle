@@ -3,6 +3,7 @@ buildscript {
         google()
         jcenter()
         maven { url "https://oss.jfrog.org/libs-snapshot" }
+        maven { url 'https://jitpack.io' }
         maven { url "https://mvnrepository.com/artifact/org.conscrypt/conscrypt-android" }
     }
     dependencies {
@@ -14,6 +15,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url 'https://jitpack.io' }
         maven { url "https://oss.jfrog.org/libs-snapshot" }
         maven { url "https://mvnrepository.com/artifact/org.conscrypt/conscrypt-android" }
     }
