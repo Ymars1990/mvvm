@@ -1,14 +1,8 @@
 package com.ymars.poj.network;
 
-import android.util.Log;
-
-import com.ymars.poj.comutils.JsonFormater;
-import com.ymars.poj.comutils.LogTools;
-
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -43,7 +37,7 @@ public class MyRetrofitManager {
                             .connectTimeout(SERVER_CONNECT_TIME_OUT, TimeUnit.SECONDS)       //超时时间
                             .readTimeout(SERVER_READ_TIME_OUT, TimeUnit.SECONDS)
                             .writeTimeout(SERVER_WRITE_TIME_OUT, TimeUnit.SECONDS)
-                            .addInterceptor(new RequstInterceptor()) //
+                            .addInterceptor(new MyInterceptor()) //
                             .addInterceptor(new AddCookiesInterceptor()) //
                             .addInterceptor(new ReceivedCookiesInterceptor())
                             .build();

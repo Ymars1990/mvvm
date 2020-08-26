@@ -15,7 +15,7 @@
         <com.zhpan.bannerview.BannerViewPager
             android:id="@+id/banner"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp156"
+            android:layout_height="@dimen/dp160"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView

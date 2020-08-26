@@ -19,12 +19,12 @@ import okio.Buffer;
  * @author Mars
  * 请求参数及返回数据
  */
-public class RequstInterceptor implements Interceptor {
+public class MyInterceptor implements Interceptor {
     private final String TAG = "RequstInterceptor";
 
     @Override
     public Response intercept(Chain chain) throws IOException {
-        Request request = chain.request();
+        Request request = chain.request().newBuilder().addHeader("content-type", "application/json; charset=UTF-8").build();
         LogTools.i(TAG, String.format("Headers:%s \n apiUrl:%s", request.headers().toString(), request.url()));
         RequestBody requestBody = request.body();
         if (requestBody != null) {

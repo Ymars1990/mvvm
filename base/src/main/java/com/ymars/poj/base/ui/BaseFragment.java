@@ -1,5 +1,6 @@
 package com.ymars.poj.base.ui;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,8 +15,16 @@ import androidx.fragment.app.Fragment;
 import com.ymars.poj.comutils.LogTools;
 
 public abstract class BaseFragment<T extends ViewDataBinding> extends Fragment {
-    private String TAG = null;
+    protected String TAG = null;
     protected T mVbinding;
+
+    protected Context mCtx;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        mCtx = context;
+    }
 
     @Nullable
     @Override
