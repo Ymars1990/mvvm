@@ -5,23 +5,38 @@
 
     <data>
 
+        <variable
+            name="article"
+            type="com.ymars.mvvm.poj.businesscom.bean.ArticleBean" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/dp10"
-        android:background="@color/white">
+        android:layout_marginTop="@dimen/dp5"
+        android:background="@color/white"
+        android:padding="@dimen/dp10">
+
+        <TextView
+            android:id="@+id/authorTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.format(`Author:%s`,article.getAuthor())}"
+            android:textSize="@dimen/sp13"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/titleTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher"
-            android:maxLines="2"
             android:ellipsize="end"
+            android:maxLines="2"
+            android:src="@mipmap/ic_launcher"
+            android:text="@{article.getTitle()}"
+            android:textSize="@dimen/sp15"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/authorTv" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -65,9 +65,10 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> implements B
                 }).create(bannerBeans);
 
         articleRv = mVbinding.articleRv;
-
         articleRv.setLayoutManager(new LinearLayoutManager(mCtx));
         articleRv.setAdapter(articleAdapter);
+
+        mVbinding.srl.setEnableAutoLoadMore(false);
     }
 
     @Override
@@ -116,6 +117,6 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> implements B
 
     @Override
     public void onRvItemClick(ArticleBean data, View v, int pos) {
-
+        LogTools.i(TAG, data.toString());
     }
 }

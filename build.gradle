@@ -7,7 +7,7 @@ buildscript {
         maven { url "https://mvnrepository.com/artifact/org.conscrypt/conscrypt-android" }
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:4.0.0"
+        classpath "com.android.tools.build:gradle:4.0.1"
     }
 }
 
