@@ -31,7 +31,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
     @NonNull
     @Override
     public ArticleViewhodler onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mCtx).inflate(R.layout.article_item, null, false);
+        View view = LayoutInflater.from(mCtx).inflate(R.layout.article_item, parent, false);
         return new ArticleViewhodler(view);
     }
 
