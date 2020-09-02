@@ -41,6 +41,11 @@ public abstract class BaseActivity<T extends ViewDataBinding> extends AppCompatA
 
 
     @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
     protected void onRestart() {
         super.onRestart();
         LogTools.i(TAG, "onRestart");
@@ -51,6 +56,4 @@ public abstract class BaseActivity<T extends ViewDataBinding> extends AppCompatA
         super.onNewIntent(intent);
         LogTools.i(TAG, "onNewIntent");
     }
-
-
 }

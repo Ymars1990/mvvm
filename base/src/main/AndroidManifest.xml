@@ -3,7 +3,10 @@
     package="com.ymars.poj.base">
 
     <application>
-        <activity android:name=".ui.BaseActivity"></activity>
+
+        <activity
+            android:name=".ui.MyWebViewActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

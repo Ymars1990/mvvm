@@ -2,11 +2,16 @@ package com.ymars.poj.home.ui;
 
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.scwang.smart.refresh.layout.SmartRefreshLayout;
+import com.scwang.smart.refresh.layout.api.RefreshLayout;
+import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
 import com.ymars.mvvm.poj.businesscom.bean.ArticleBean;
 import com.ymars.mvvm.poj.businesscom.bean.ArticleDataBean;
 import com.ymars.mvvm.poj.businesscom.bean.BannerBean;
@@ -27,7 +32,7 @@ import com.zhpan.indicator.enums.IndicatorStyle;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeFragment extends BaseFragment<FragmentHomeBinding> implements BannerViewPager.OnPageClickListener, RvItemOnclicker<ArticleBean> {
+public class HomeFragment extends BaseFragment<FragmentHomeBinding> implements BannerViewPager.OnPageClickListener, RvItemOnclicker<ArticleBean>, OnRefreshLoadMoreListener {
     private HomeViewModel homeViewModel;
     private BannerViewPager<BannerBean, BannerViewHolder> bannerViewPager;
     private RecyclerView articleRv;
@@ -37,6 +42,7 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> implements B
 
     private ArticleAdapter articleAdapter;
     private ArrayList<ArticleBean> articleBeans;
+    private int page = 0;
 
     @Override
     protected int setLayoutId() {
@@ -69,18 +75,21 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> implements B
         articleRv.setAdapter(articleAdapter);
 
         mVbinding.srl.setEnableAutoLoadMore(false);
+        mVbinding.srl.setOnRefreshLoadMoreListener(this);
     }
 
     @Override
     protected void doWork() {
-        homeViewModel.getArticleDataBean(0);
-        bannerBeans.clear();
+        homeViewModel.getArticleDataBean(page);
+
         homeViewModel.getBannerBean();
         homeViewModel.getmBannerBean().observe(getViewLifecycleOwner(), new Observer<List<BannerBean>>() {
             @Override
             public void onChanged(List<BannerBean> banners) {
                 LogTools.i(TAG, String.format("Banner Data Change:%s", banners.toString()));
-
+                bannerBeans.clear();
+                mVbinding.srl.finishLoadMore();
+                mVbinding.srl.finishRefresh();
                 bannerBeans.addAll(banners);
                 bannerViewPager.refreshData(bannerBeans);
                 bannerViewPager.getAdapter().notifyDataSetChanged();
@@ -90,10 +99,19 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> implements B
         homeViewModel.getmArticleDataBean().observe(getViewLifecycleOwner(), new Observer<ArticleDataBean>() {
             @Override
             public void onChanged(ArticleDataBean articleDataBean) {
+                mVbinding.srl.finishLoadMore();
+                mVbinding.srl.finishRefresh();
                 LogTools.i(TAG, String.format("Article Data Change:%s", articleDataBean.toString()));
-                articleBeans.clear();
-                articleBeans.addAll(articleDataBean.getDatas());
-                articleAdapter.notifyDataSetChanged();
+                if (page == 0) {
+                    articleBeans.clear();
+                }
+                if (articleDataBean.getDatas() != null) {
+                    if (articleDataBean.getDatas().size() >= 20) {
+                        page++;
+                    }
+                    articleBeans.addAll(articleDataBean.getDatas());
+                    articleAdapter.notifyDataSetChanged();
+                }
             }
         });
 
@@ -118,5 +136,18 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> implements B
     @Override
     public void onRvItemClick(ArticleBean data, View v, int pos) {
         LogTools.i(TAG, data.toString());
+        ARouter.getInstance().build("/base/MyWebViewActivity").withString("url", data.getLink()).navigation();
+    }
+
+    @Override
+    public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+        homeViewModel.getArticleDataBean(page);
+    }
+
+    @Override
+    public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+        page = 0;
+        homeViewModel.getBannerBean();
+        homeViewModel.getArticleDataBean(page);
     }
 }
