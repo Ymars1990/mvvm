@@ -2,6 +2,8 @@ package com.ymars.poj.base;
 
 import android.app.Application;
 
+import androidx.lifecycle.DefaultLifecycleObserver;
+
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.ymars.poj.comutils.LogTools;
 

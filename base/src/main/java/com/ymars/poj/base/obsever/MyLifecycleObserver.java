@@ -22,31 +22,31 @@ public class MyLifecycleObserver implements DefaultLifecycleObserver {
 
     @Override
     public void onCreate(@NonNull LifecycleOwner owner) {
-        LogTools.w(TAG, "onCreate");
+        LogTools.i(TAG, "onCreate");
     }
 
     @Override
     public void onDestroy(@NonNull LifecycleOwner owner) {
-        LogTools.w(TAG, "onDestroy");
+        LogTools.i(TAG, "onDestroy");
     }
 
     @Override
     public void onPause(@NonNull LifecycleOwner owner) {
-        LogTools.w(TAG, "onPause");
+        LogTools.i(TAG, "onPause");
     }
 
     @Override
     public void onResume(@NonNull LifecycleOwner owner) {
-        LogTools.w(TAG, "onResume");
+        LogTools.i(TAG, "onResume");
     }
 
     @Override
     public void onStart(@NonNull LifecycleOwner owner) {
-        LogTools.w(TAG, "onStart");
+        LogTools.i(TAG, "onStart");
     }
 
     @Override
     public void onStop(@NonNull LifecycleOwner owner) {
-        LogTools.w(TAG, "onStop");
+        LogTools.i(TAG, "onStop");
     }
 }
