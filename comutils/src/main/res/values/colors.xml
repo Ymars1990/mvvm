@@ -7,5 +7,6 @@
     <color name="gray">#A2A3A3</color>
 
     <color name="white">#ffffff</color>
+    <color name="transparent">#00000000</color>
 
 </resources>

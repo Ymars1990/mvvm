@@ -2,22 +2,29 @@ package com.ymars.poj.base.ui;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ProgressBar;
 
 import androidx.annotation.Nullable;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.gyf.immersionbar.ImmersionBar;
 import com.ymars.poj.base.R;
+import com.ymars.poj.base.databinding.ActivityMywebviewBinding;
 import com.ymars.poj.comutils.LogTools;
 import com.ymars.poj.comutils.StringTools;
 
-@Route(path = "/base/MyWebViewActivity")
-public class MyWebViewActivity extends BaseActivity {
-    private WebView webView;
+import static android.view.KeyEvent.KEYCODE_BACK;
 
+@Route(path = "/base/MyWebViewActivity")
+public class MyWebViewActivity extends BaseActivity<ActivityMywebviewBinding> {
+    private WebView webView;
+    private ProgressBar loadingPb;
     private String url = null;
 
     @Override
@@ -27,7 +34,9 @@ public class MyWebViewActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        webView = this.findViewById(R.id.webView);
+        ImmersionBar.with(this).statusBarColor(R.color.transparent).statusBarDarkFont(true).init();
+        webView = viewBinding.webView;
+        loadingPb = viewBinding.loadingPb;
         url = getIntent().getStringExtra("url");
         initWebView();
         loadUrl();
@@ -75,6 +84,7 @@ public class MyWebViewActivity extends BaseActivity {
                 @Override
                 public void onPageStarted(WebView view, String url, Bitmap favicon) {
                     LogTools.i(TAG, "加载onPageStarted");
+                    LogTools.i(TAG, "加载url" + url);
                 }
 
                 @Override
@@ -105,12 +115,26 @@ public class MyWebViewActivity extends BaseActivity {
                 public void onProgressChanged(WebView view, int newProgress) {
                     super.onProgressChanged(view, newProgress);
                     LogTools.i(TAG, String.format("加载进度:%s", newProgress));
+                    loadingPb.setProgress(newProgress);
                     if (newProgress < 100) {
-
+                        loadingPb.setVisibility(View.VISIBLE);
+                    } else {
+                        loadingPb.setVisibility(View.GONE);
                     }
                 }
             });
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KEYCODE_BACK && webView.canGoBack()) {
+            webView.goBack();
+            return true;
+        } else {
+            finish();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     private void loadUrl() {
