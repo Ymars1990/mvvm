@@ -12,6 +12,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.fragment.app.Fragment;
 
+import com.ymars.poj.base.obsever.MyLifecycleObserver;
 import com.ymars.poj.comutils.LogTools;
 
 public abstract class BaseFragment<T extends ViewDataBinding> extends Fragment {
@@ -26,10 +27,16 @@ public abstract class BaseFragment<T extends ViewDataBinding> extends Fragment {
         mCtx = context;
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        TAG = this.getClass().getSimpleName();
+        getLifecycle().addObserver(new MyLifecycleObserver(TAG));
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        TAG = this.getClass().getSimpleName();
         mVbinding = DataBindingUtil.inflate(inflater, setLayoutId(), container, false);
         initData();
         initView();

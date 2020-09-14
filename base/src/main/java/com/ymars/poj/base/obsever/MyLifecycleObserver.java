@@ -17,36 +17,36 @@ public class MyLifecycleObserver implements DefaultLifecycleObserver {
     }
 
     public MyLifecycleObserver(String tag) {
-        TAG = tag;
+        TAG= tag;
     }
 
     @Override
     public void onCreate(@NonNull LifecycleOwner owner) {
-        LogTools.i(TAG, "onCreate");
+        LogTools.i(TAG+"--Lifecycle", "onCreate");
     }
 
     @Override
     public void onDestroy(@NonNull LifecycleOwner owner) {
-        LogTools.i(TAG, "onDestroy");
+        LogTools.i(TAG+"--Lifecycle", "onDestroy");
     }
 
     @Override
     public void onPause(@NonNull LifecycleOwner owner) {
-        LogTools.i(TAG, "onPause");
+        LogTools.i(TAG+"--Lifecycle", "onPause");
     }
 
     @Override
     public void onResume(@NonNull LifecycleOwner owner) {
-        LogTools.i(TAG, "onResume");
+        LogTools.i(TAG+"--Lifecycle", "onResume");
     }
 
     @Override
     public void onStart(@NonNull LifecycleOwner owner) {
-        LogTools.i(TAG, "onStart");
+        LogTools.i(TAG+"--Lifecycle", "onStart");
     }
 
     @Override
     public void onStop(@NonNull LifecycleOwner owner) {
-        LogTools.i(TAG, "onStop");
+        LogTools.i(TAG+"--Lifecycle", "onStop");
     }
 }
