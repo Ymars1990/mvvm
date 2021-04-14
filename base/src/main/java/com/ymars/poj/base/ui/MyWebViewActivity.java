@@ -116,7 +116,7 @@ public class MyWebViewActivity extends BaseActivity<ActivityMywebviewBinding> {
                     super.onProgressChanged(view, newProgress);
                     LogTools.i(TAG, String.format("加载进度:%s", newProgress));
                     loadingPb.setProgress(newProgress);
-                    if (newProgress < 100) {
+                    if (newProgress < 80) {
                         loadingPb.setVisibility(View.VISIBLE);
                     } else {
                         loadingPb.setVisibility(View.GONE);
