@@ -1,4 +1,4 @@
-package com.ymars.poj.home.ui.adapter;
+package com.ymars.poj.home.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;

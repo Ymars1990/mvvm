@@ -1,16 +1,10 @@
-package com.ymars.poj.home.ui.adapter;
+package com.ymars.poj.home.adapter;
 
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
-
-import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.ymars.mvvm.poj.businesscom.bean.BannerBean;
-import com.ymars.poj.comutils.UnitTools;
 import com.ymars.poj.home.R;
 import com.zhpan.bannerview.BaseBannerAdapter;
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Your custom size defind by references, can be writted in anywhere, any module, any values/*.xml, for example: -->
     <dimen name="cardcommonmarginleft">@dimen/dp15</dimen>
 
@@ -391,13 +391,13 @@
     <dimen name="dp370">370dp</dimen>
     <dimen name="dp400">400dp</dimen>
     <dimen name="dp410">410dp</dimen>
+    <dimen name="dp460">460dp</dimen>
     <dimen name="dp422">422dp</dimen>
     <dimen name="dp472">472dp</dimen>
     <dimen name="dp500">500dp</dimen>
     <dimen name="dp600">600dp</dimen>
     <dimen name="dp640">640dp</dimen>
     <dimen name="dp720">720dp</dimen>
-
     <!-- font size,you can add if there is no one -->
     <dimen name="sp6">6sp</dimen>
     <dimen name="sp7">7sp</dimen>
@@ -419,6 +419,7 @@
     <dimen name="sp23">23sp</dimen>
     <dimen name="sp24">24sp</dimen>
     <dimen name="sp25">25sp</dimen>
+    <dimen name="sp26">26sp</dimen>
     <dimen name="sp28">28sp</dimen>
     <dimen name="sp30">30sp</dimen>
     <dimen name="sp32">32sp</dimen>
@@ -433,7 +434,8 @@
     <dimen name="sp55">55sp</dimen>
 
 
-    <dimen name="design_bottom_navigation_active_text_size" tools:override="true">12sp</dimen>
-    <dimen name="design_bottom_navigation_text_size" tools:override="true">12sp</dimen>
-    <dimen name="design_bottom_navigation_margin" tools:override="true">15dp</dimen>
+    <dimen name="root_left_safety_distance">15dp</dimen>
+    <dimen name="root_right_safety_distance">15dp</dimen>
+    <dimen name="root_top_safety_distance">12dp</dimen>
+
 </resources>

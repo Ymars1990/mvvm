@@ -6,10 +6,11 @@ import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.gyf.immersionbar.ImmersionBar;
 import com.ymars.poj.base.adapter.MyFragmentAdapter;
 import com.ymars.poj.base.ui.BaseActivity;
 import com.ymars.poj.base.ui.BaseFragment;
-import com.ymars.poj.home.ui.HomeFragment;
+import com.ymars.poj.home.ui.fragment.HomeFragment;
 import com.ymars.poj.message.ui.MessageFragment;
 import com.ymars.poj.mine.ui.MineFragment;
 import com.ymars.poj.mvvm.R;
@@ -32,6 +33,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
     @Override
     protected int setLayoutId(@Nullable Bundle savedInstanceState) {
+        ImmersionBar.with(this).statusBarColor(com.ymars.poj.base.R.color.transparent).statusBarDarkFont(true).init();
         return R.layout.activity_main;
     }
 

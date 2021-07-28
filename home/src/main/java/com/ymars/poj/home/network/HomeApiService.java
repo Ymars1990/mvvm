@@ -1,4 +1,4 @@
-package com.ymars.poj.home.ui.network;
+package com.ymars.poj.home.network;
 
 import com.ymars.mvvm.poj.businesscom.bean.ArticleDataBean;
 import com.ymars.mvvm.poj.businesscom.bean.BannerBean;

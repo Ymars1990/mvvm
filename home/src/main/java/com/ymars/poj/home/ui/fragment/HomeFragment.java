@@ -1,4 +1,4 @@
-package com.ymars.poj.home.ui;
+package com.ymars.poj.home.ui.fragment;
 
 import android.view.View;
 
@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
 import com.ymars.mvvm.poj.businesscom.bean.ArticleBean;
@@ -21,10 +20,10 @@ import com.ymars.poj.component.interf.RvItemOnclicker;
 import com.ymars.poj.comutils.LogTools;
 import com.ymars.poj.home.R;
 import com.ymars.poj.home.databinding.FragmentHomeBinding;
-import com.ymars.poj.home.ui.adapter.ArticleAdapter;
-import com.ymars.poj.home.ui.adapter.BannerViewHolder;
-import com.ymars.poj.home.ui.adapter.HomeBannerAdapter;
-import com.ymars.poj.home.ui.viewmodel.HomeViewModel;
+import com.ymars.poj.home.adapter.ArticleAdapter;
+import com.ymars.poj.home.adapter.BannerViewHolder;
+import com.ymars.poj.home.adapter.HomeBannerAdapter;
+import com.ymars.poj.home.viewmodel.HomeViewModel;
 import com.zhpan.bannerview.BannerViewPager;
 import com.zhpan.indicator.enums.IndicatorSlideMode;
 import com.zhpan.indicator.enums.IndicatorStyle;
@@ -136,7 +135,7 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> implements B
     @Override
     public void onRvItemClick(ArticleBean data, View v, int pos) {
         LogTools.i(TAG, data.toString());
-        ARouter.getInstance().build("/base/MyWebViewActivity").withString("url", data.getLink()).navigation();
+        ARouter.getInstance().build("/home/TestActivity").withString("url", data.getLink()).navigation();
     }
 
     @Override

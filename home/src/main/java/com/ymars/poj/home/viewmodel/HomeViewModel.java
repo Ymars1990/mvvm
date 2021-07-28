@@ -1,4 +1,4 @@
-package com.ymars.poj.home.ui.viewmodel;
+package com.ymars.poj.home.viewmodel;
 
 import android.app.Application;
 
@@ -9,7 +9,7 @@ import com.ymars.mvvm.poj.businesscom.bean.ArticleDataBean;
 import com.ymars.mvvm.poj.businesscom.bean.BannerBean;
 import com.ymars.poj.base.model.BaseViewModel;
 import com.ymars.poj.comutils.LogTools;
-import com.ymars.poj.home.ui.network.HomeApiService;
+import com.ymars.poj.home.network.HomeApiService;
 import com.ymars.poj.network.BaseObserver;
 import com.ymars.poj.network.MyRetrofitManager;
 
