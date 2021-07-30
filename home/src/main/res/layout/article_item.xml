@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <import type="com.ymars.poj.comutils.StringTools"/>
         <variable
             name="article"
             type="com.ymars.mvvm.poj.businesscom.bean.ArticleBean" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,7 +22,7 @@
             android:id="@+id/authorTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{String.format(`Author:%s`,article.getAuthor())}"
+            android:text="@{String.format(`Author:%s`,StringTools.strIsNotNull(article.getAuthor())?article.getAuthor():`鸿洋官方`)}"
             android:textSize="@dimen/sp13"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

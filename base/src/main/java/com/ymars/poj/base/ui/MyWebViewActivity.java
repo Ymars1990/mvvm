@@ -34,6 +34,7 @@ public class MyWebViewActivity extends BaseActivity<ActivityMywebviewBinding> {
 
     @Override
     protected void initView() {
+        mNeedBackGesture = true;
         ImmersionBar.with(this).statusBarColor(R.color.transparent).statusBarDarkFont(true).init();
         webView = viewBinding.webView;
         loadingPb = viewBinding.loadingPb;

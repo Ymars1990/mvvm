@@ -135,7 +135,7 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> implements B
     @Override
     public void onRvItemClick(ArticleBean data, View v, int pos) {
         LogTools.i(TAG, data.toString());
-        ARouter.getInstance().build("/home/TestActivity").withString("url", data.getLink()).navigation();
+        ARouter.getInstance().build("/base/MyWebViewActivity").withString("url", data.getLink()).navigation();
     }
 
     @Override
