@@ -39,7 +39,6 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
     @Override
     protected void initView() {
-        mNeedBackGesture= true;
         initData();
         tabVp = viewBinding.tabVp;
         tabBnv = viewBinding.tabBnv;
